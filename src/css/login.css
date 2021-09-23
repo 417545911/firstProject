@@ -31,6 +31,7 @@ body {
   position: absolute;
   left: 10%;
   top: 22%;
+  /* display: none; */
   z-index: 99999999;
 }
 
@@ -47,6 +48,38 @@ body {
   font-size: 24px;
 }
 
+/* 忘记密码和注册 */
+.font-set{
+  font-size:13px;
+  text-decoration:none;
+  margin-left:120px!important;
+  margin-top: 20px;
+  display: inline-block
+}
+.font-setregister{
+  font-size:13px;
+  text-decoration:none;
+  margin-left:120px!important;
+  margin-top: 20px;
+  display: inline-block
+}
+
+.font-setlogin{
+  font-size:13px;
+  text-decoration:none;
+  margin: 20px 36%;
+  display: inline-block
+}
+/* 注册表单 */
+.register_main{
+  background-color: rgba(20, 20, 20, 0.9);
+  width: 450px;
+  height: 350px;
+  color: wheat;
+  position: absolute;
+  left: 10%;
+  top: 22%;
+}
 @media screen and (max-width: 768px) {
   .ljy_lofo_main {
     width: 100%;

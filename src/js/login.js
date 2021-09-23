@@ -22,14 +22,9 @@ layui.use(['carousel', 'form'], function () {
         }
     });
 
-    //监听提交
-    form.on('submit(demo1)', function (data) {
-        // layer.alert(JSON.stringify(data.field), {
-        // 	title: '最终的提交信息'
-        // })
-        console.log(data);
-        //data.field
-        console.log(data.field);
+    //监听登录提交
+    form.on('submit(login)', function (data) {
+        $(this).parent().prev().find('button').css('display', 'none')
         $.ajax({
             type: "POST",
             url: "http://localhost/2111/1000BBS1.com/php/login.php",
@@ -39,8 +34,7 @@ layui.use(['carousel', 'form'], function () {
                 console.log("Data Saved: " + res);
                 if (res.code == 1) {
                     alert(res.msg);
-                    setCookie('name',data.field.pwd,45);
-                    
+                    setCookie('name', data.field.userName, 45);
                     // location.href = './pc.html';
                 } else {
                     alert(res.msg);
@@ -50,6 +44,45 @@ layui.use(['carousel', 'form'], function () {
         return false;
     });
 
+    //监听注册提交
+    form.on('submit(register)', function (data) {
+        // console.log(this)
+        // console.log($(this).parent().prev().find('button'));        
+        $.ajax({
+            type: "POST",
+            url: "http://localhost/2111/1000BBS1.com/php/checkName.php",
+            data: `name=${data.field.userName}`,
+            dataType: 'json',
+            success: function (res) {
+                if (res.code == 1) {
+                    //用户名可用
+                    // alert(res.msg);
+                    // location.href = './login.html';
+                    $.ajax({
+                        type: "POST",
+                        url: "http://localhost/2111/1000BBS1.com/php/register.php",
+                        data: `name=${data.field.userName}&pwd=${data.field.pwd}`,
+                        dataType: 'json',
+                        success: function (res) {
+                            console.log("Data Saved: " + res);
+                            if (res.code == 1) {
+                                alert(res.msg);
+                                location.href = './login.html';
+                            } else {
+                                alert(res.msg);
+                            }
+                        }
+                    });;
+                } else {
+                    //用户名重复
+                    alert(res.msg);
+                    return false;
+                }
+            }
+        })
+
+        return false;
+    });
 
     //设置轮播主体高度
     var ljy_login_height = $(window).height() / 1.3;
@@ -90,21 +123,10 @@ layui.use(['carousel', 'form'], function () {
 
 });
 
-document.cookie="22jalfj=hhkahf";
 
 //设置cookie
-function setCookie(name, value) {
+function setCookie(name, value, expires) {
     // 设置有效时间
-    // let time = new Date(new Date().getTime() - 8 * 60 * 60 * 1000 + expires * 1000);
-    document.cookie =`${name}=${value}`;
-    // document.cookie =name+"="+value+";"+expires+"="+time;
-
-    console.log(111);
-    console.log(document.cookie);
-    console.log(name);
-
+    let time = new Date(new Date().getTime() - 8 * 60 * 60 * 1000 + expires * 1000);
+    document.cookie = `${name}=${value};${expires}=${time}`;
 }
-
-
-
-
