@@ -1,0 +1,34 @@
+@charset "UTF-8";
+/* 清除p标签和浏览器默认间距 */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ /* 清除加粗标签的默认样式 */
+ b,strong{
+     font-weight: normal;
+ }
+ /*清除倾斜标签的默认样式*/
+ i,em{
+     font-style: normal;
+ }
+ /* 清除链接默认下划线 */
+u,a{
+     text-decoration: none;
+ }
+ ul li{
+     list-style: none;
+ }
+ li{
+     list-style: none;
+ }
+ .clear-fix::after{
+     content: "";
+     width: 100%;
+     height: 0;
+     display: block;
+     clear: both;
+     overflow: hidden;
+     visibility: hidden;
+ }

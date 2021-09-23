@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>登录注册</title>
+	<link rel="stylesheet" href="./lib/layui/css/layui.css" media="all" />
+	<link rel="stylesheet" href="./css/login.css" media="all" />
+	<style>
+		/* 覆盖原框架样式 */
+		.layui-elem-quote {
+			background-color: inherit !important;
+		}
+
+		.layui-input,
+		.layui-select,
+		.layui-textarea {
+			background-color: inherit;
+			padding-left: 30px;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Head -->
+	<div class="layui-fluid">
+		<div class="layui-row layui-col-space15">
+			<div class="layui-col-sm12 layui-col-md12 ljy_mar_01">
+				<blockquote class="layui-elem-quote">简约后台登陆界面</blockquote>
+			</div>
+		</div>
+	</div>
+	<!-- Head End -->
+
+	<!-- Carousel -->
+	<div class="layui-row">
+		<div class="layui-col-sm12 layui-col-md12">
+			<div class="layui-carousel ljy_login_height" id="ljylogin" lay-filter="ljylogin">
+				<div carousel-item="">
+					<div>
+						<div class="ljy_login_cont"></div>
+					</div>
+					<div>
+						<img class=".ljy_img_01" src="./images/2021911223627.png" />
+					</div>
+					<div>
+						<div class="background">
+							<span></span><span></span><span></span>
+							<span></span><span></span><span></span>
+							<span></span><span></span><span></span>
+							<span></span><span></span><span></span>
+						</div>
+					</div>
+					<div>
+						<img class=".ljy_img_01" src="./images/QQ图片20210922203236.jpg" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Carousel End -->
+
+	<!-- Footer -->
+	<div class="layui-row">
+		<div class="layui-col-sm12 layui-col-md12 ljy_center ljy_mar_01">
+			© 2021 - 简约后台登陆界面 || 简约后台登陆界面版权所有
+		</div>
+	</div>
+	<!-- Footer End -->
+
+	<!-- LoginForm -->
+	<div class="ljy_lofo_main">
+		<fieldset class="layui-elem-field layui-field-title ljy_mar_02">
+			<legend>欢迎登陆 - 彩虹先生管理平台</legend>
+		</fieldset>
+		<div class="layui-row layui-col-space15">
+			<form class="layui-form ljy_pad_01" action="">
+				<div class="layui-col-sm12 layui-col-md12">
+					<div class="layui-form-item">
+						<input type="text" name="userName" lay-verify="required|userName" autocomplete="off"
+							placeholder="账号" class="layui-input">
+						<i class="layui-icon layui-icon-username ljy_lofo_icon"></i>
+					</div>
+				</div>
+				<div class="layui-col-sm12 layui-col-md12">
+					<div class="layui-form-item">
+						<input type="password" name="pwd" lay-verify="required|pass" autocomplete="off" placeholder="密码"
+							class="layui-input">
+						<i class="layui-icon layui-icon-password ljy_lofo_icon"></i>
+					</div>
+				</div>
+				<div class="layui-col-sm12 layui-col-md12">
+					<div class="layui-row">
+						<div class="layui-col-xs4 layui-col-sm4 layui-col-md4">
+							<div class="layui-form-item">
+								<input type="text" name="vercode" id="vercode" lay-verify="required|vercodes"
+									autocomplete="off" placeholder="验证码" class="layui-input" maxlength="4">
+								<i class="layui-icon layui-icon-vercode ljy_lofo_icon"></i>
+							</div>
+						</div>
+						<div class="layui-col-xs4 layui-col-sm4 layui-col-md4">
+							<div class="ljy_lofo_vercode ljyVerCode" onclick="ljyVerCode()"></div>
+						</div>
+					</div>
+				</div>
+				<div class="layui-col-sm12 layui-col-md12 ">
+					<button class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="demo1">立即登录</button>
+				</div>
+				<div class="layui-col-sm12 layui-col-md12 ljy_mar_01">
+					<button class="layui-btn layui-btn-fluid" lay-submit="" lay-filter="demo2">立即注册</button>
+				</div>
+
+			</form>
+		</div>
+	</div>
+	<!-- LoginForm End -->
+
+	<script type="text/javascript" src="./lib/jquery.min.js"></script>
+	<script type="text/javascript" src="./lib/layui/layui.js"></script>
+	<!-- Jparticle Js -->
+	<!-- 粒子插件 -->
+	<script src="./lib/jparticle.min.js"></script>
+	<!-- 防止赋值和验证码验证 -->
+	<script src="./js/loginSafe.js"></script>
+	<!-- layui的使用 -->
+	<script src="./js/login.js"></script>
+
+</body>
+
+</html>
